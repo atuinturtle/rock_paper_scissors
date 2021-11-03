@@ -31,7 +31,22 @@ function playRound(playerSelection, computerSelection) {
         return 'You lose! Scissors beats Paper';
     } else {
         return 'Draw!';
-    }
+    }   
+}
 
-    
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let round = playRound(prompt(), computerPlay());
+        let verdict = round.slice(0, 9);
+        console.log(round);
+        if (verdict === 'You win! ') {
+            playerScore++;
+        } else if (verdict === "You lose!") {
+            computerScore++;
+        }
+    }
+    console.log('Score: ' + playerScore + '-' + computerScore)
 }
